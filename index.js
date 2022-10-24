@@ -31,7 +31,7 @@ function myFunction() {
 
 function summation(number) {
 const numArray = [1,2,3,number];
-  const singleNum = numArray.reduce(function(acc, numArray){
+  const singleNum = numArray.reduce((acc, numArray) => {
   return acc + numArray;
 },0);
   return singleNum;
@@ -63,13 +63,13 @@ const zooAnimals = [
   */
 
   function animalNames(array){
-    const displayNames = [];
-     array.forEach((item) => {
-      displayNames.push(item.animal_name && item.scientific_name);
+    const displayNames = array.forEach((item) => {
+      return item.animal_name;
+      return item.scientific_name;
       // displayNames.push(item.scientific_name);
       // return `name: animal_name, scientific: scientific_name`;
   });
-    return displayNames;
+    // return displayNames;
   }
   // console.log(animalNames(zooAnimals));
 
@@ -84,7 +84,7 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(array){
-    const lowerCase = array.map(function(item){
+    const lowerCase = array.map((item) => {
       return item.animal_name.toLowerCase();
     })
     return lowerCase;
@@ -100,10 +100,13 @@ const zooAnimals = [
   3. Return this new array
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(array){
+    const lowPop = array.filter((item) => {
+      return item.population < 5;
+    });
+    return lowPop;
   }
-  
+  console.log(lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
@@ -114,10 +117,13 @@ const zooAnimals = [
   💡 NOTE: Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count. Check MDN/W3Schools for syntax!
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(array){
+    const totalPop = array.reduce((acc) => {
+      return acc + array.population;
+    },0);
+    return totalPop;
   }
-  
+  console.log(USApop(zooAnimals));
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
