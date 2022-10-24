@@ -118,8 +118,8 @@ const zooAnimals = [
   */
 
   function USApop(array){
-    const totalPop = array.reduce((acc) => {
-      return acc + array.population;
+    const totalPop = array.reduce((acc, item) => {
+      return acc + item.population;
     },0);
     return totalPop;
   }
