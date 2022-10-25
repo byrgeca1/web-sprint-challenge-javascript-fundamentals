@@ -30,13 +30,28 @@ function myFunction() {
 */
 
 function summation(number) {
-const numArray = [1,2,3,number];
-  const singleNum = numArray.reduce((acc, item) => {
-  return acc + item;
-},0);
-  return singleNum;
+// const numArray1 = [1,2,3,4];
+// const numArray2 = [1,2,3,4,5,6,7,8,9,10];
+// for(let i = 0; i < number; i++) {
+//   return ;
+// }
+  let count = 0;
+  for (let i = 0; i <= number; i++) {
+count = i + count;
+}
+return count;
+//   const singleNum1 = numArray1.reduce((acc, item) => {
+//    acc + item;
+// },0);
+//   return singleNum1;
+
+//   const singleNum2 = numArray2.reduce((acc, item) => {
+//      acc + item;
+//   },0);
+//     return singleNum2;
 }
 console.log(summation(4)); 
+console.log(summation(10));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -63,15 +78,17 @@ const zooAnimals = [
   */
 
   function animalNames(array){
-    const displayNames = array.forEach((item) => {
-      return item.animal_name;
-      return item.scientific_name;
-      // displayNames.push(item.scientific_name);
-      // return `name: animal_name, scientific: scientific_name`;
+    const displayNames = [];
+    array.forEach((item) => {
+      // return item.animal_name;
+      // return item.scientific_name;
+      displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+      // displayNames.push(item.animal_name);
+      // return `name: ${item.animal_name}, scientific: ${item.scientific_name}`;
   });
-    // return displayNames;
+    return displayNames;
   }
-  // console.log(animalNames(zooAnimals));
+  console.log(animalNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
